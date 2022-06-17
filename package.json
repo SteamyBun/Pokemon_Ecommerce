@@ -1,5 +1,102 @@
 {
+  "name": "pokemon_ecommerce",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "App.jsx",
   "dependencies": {
-    "styled-components": "^5.3.5"
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.4",
+    "ansi-styles": "^3.2.1",
+    "babel-plugin-macros": "^2.8.0",
+    "browserslist": "^4.20.4",
+    "callsites": "^3.1.0",
+    "caniuse-lite": "^1.0.30001355",
+    "chalk": "^2.4.2",
+    "clsx": "^1.1.1",
+    "color-convert": "^1.9.3",
+    "color-name": "^1.1.3",
+    "convert-source-map": "^1.8.0",
+    "cosmiconfig": "^6.0.0",
+    "csstype": "^3.1.0",
+    "debug": "^4.3.4",
+    "dom-helpers": "^5.2.1",
+    "electron-to-chromium": "^1.4.160",
+    "error-ex": "^1.3.2",
+    "escalade": "^3.1.1",
+    "escape-string-regexp": "^4.0.0",
+    "find-root": "^1.1.0",
+    "function-bind": "^1.1.1",
+    "gensync": "^1.0.0-beta.2",
+    "globals": "^11.12.0",
+    "has": "^1.0.3",
+    "has-flag": "^3.0.0",
+    "hoist-non-react-statics": "^3.3.2",
+    "import-fresh": "^3.3.0",
+    "is-arrayish": "^0.2.1",
+    "is-core-module": "^2.9.0",
+    "js-tokens": "^4.0.0",
+    "jsesc": "^2.5.2",
+    "json-parse-even-better-errors": "^2.3.1",
+    "json5": "^2.2.1",
+    "lines-and-columns": "^1.2.4",
+    "loose-envify": "^1.4.0",
+    "ms": "^2.1.2",
+    "node-releases": "^2.0.5",
+    "object-assign": "^4.1.1",
+    "parent-module": "^1.0.1",
+    "parse-json": "^5.2.0",
+    "path-parse": "^1.0.7",
+    "path-type": "^4.0.0",
+    "picocolors": "^1.0.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^17.0.2",
+    "react-scripts": "^5.0.1",
+    "react-transition-group": "^4.4.2",
+    "regenerator-runtime": "^0.13.9",
+    "resolve": "^1.22.0",
+    "resolve-from": "^4.0.0",
+    "safe-buffer": "^5.1.2",
+    "scheduler": "^0.23.0",
+    "semver": "^6.3.0",
+    "source-map": "^0.5.7",
+    "styled-components": "^5.3.5",
+    "stylis": "^4.0.13",
+    "supports-color": "^5.5.0",
+    "supports-preserve-symlinks-flag": "^1.0.0",
+    "to-fast-properties": "^2.0.0",
+    "yaml": "^1.10.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SteamyBun/Pokemon_Ecommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SteamyBun/Pokemon_Ecommerce/issues"
+  },
+  "homepage": ".",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "web-vitals": "^2.1.4"
   }
 }
