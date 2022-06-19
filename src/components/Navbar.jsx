@@ -1,4 +1,4 @@
-import { Search } from '@mui/icons-material';
+import { Badge, Search, ShoppingCartOutlined } from '@mui/icons-material';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -9,19 +9,47 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 10px;
 `;
 
+const Title = styled.h1`
+  text-align: center;
+`;
+
 const Left = styled.div`
   flex: 1;
+  display: flex;
+  align-items: center;
+`;
+
+const SearchContainer = styled.div`
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  padding: 5px;
+`;
+
+const SearchInput = styled.input`
+  border: none;
 `;
 
 const Center = styled.div`
   flex: 1;
+  text-align: center;
 `;
 const Right = styled.div`
   flex: 1;
+`;
+
+const NavItems = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 12px;
+  cursor: pointer;
 `;
 
 const Navbar = () => {
@@ -29,11 +57,23 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          Left
-          <Search />
+          <SearchContainer>
+            <SearchInput />
+            <Search />
+          </SearchContainer>
         </Left>
-        <Center>Center</Center>
-        <Right>Right</Right>
+        <Center>
+          <Title>Poke-Mart.</Title>
+        </Center>
+        <Right>
+          <NavItems>Register</NavItems>
+          <NavItems>Sign In</NavItems>
+          <NavItems>
+            <Badge badgeContent={4} color='primary'>
+              <ShoppingCartOutlined />
+            </Badge>
+          </NavItems>
+        </Right>
       </Wrapper>
     </Container>
   );
