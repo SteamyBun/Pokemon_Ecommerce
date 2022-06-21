@@ -70,6 +70,7 @@ const Navbar = () => {
           <Title>Poke-Mart.</Title>
         </Center>
         <Right>
+          <NavItems></NavItems>
           <NavItems>Register</NavItems>
           <NavItems>Sign In</NavItems>
           <NavItems>
