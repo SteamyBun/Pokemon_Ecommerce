@@ -8,7 +8,7 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   position: relative;
-  background-color: rgba(246, 246, 246, 255);
+  overflow: hidden;
 `;
 const Arrow = styled.div`
   height: 100px;
@@ -24,12 +24,13 @@ const Arrow = styled.div`
   margin: auto;
   cursor: pointer;
   opacity: 0.5;
-  z-index: 2;
+  z-index: 3;
 `;
 
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
+  transition: all 1.5s ease;
   transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
 
@@ -74,7 +75,7 @@ const Slide = () => {
     if (direction === 'left') {
       setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
     } else {
-      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+      setSlideIndex(slideIndex < 3 ? slideIndex + 1 : 0);
     }
   };
   return (
