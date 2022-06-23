@@ -67,7 +67,7 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Title>Poke-Mart.</Title>
+          <Title>Poké-Mart.</Title>
         </Center>
         <Right>
           <NavItems></NavItems>

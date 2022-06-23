@@ -2,7 +2,7 @@ export const sliderItems = [
   {
     id: 1,
     img: 'images/charizard_shiny.png',
-    title: 'New Shiny Pokemon Avilable NOW!',
+    title: 'New Shiny Pokémon Avilable NOW!',
     desc: 'Look like one of the elite four with our new shiny pokemon collection! For your first order, get 30% off!',
     bg: 'F7D8BA',
   },
@@ -16,15 +16,68 @@ export const sliderItems = [
   {
     id: 3,
     img: 'images/pikachu.png',
-    title: 'New to the Pokemon World?',
-    desc: 'Come grab a starter and get started on your pokemon journey. With a purchase of a starter, get the next pokemon 50% off!',
+    title: 'New to the Pokémon World?',
+    desc: 'Come grab a starter from us. With a purchase of a starter, get the next pokémon 50% off!',
     bg: 'FFF6B3',
   },
   {
     id: 4,
     img: 'images/heals.png',
-    title: 'Poke Items on Sale',
+    title: 'Poké Items on Sale!',
     desc: 'Buy 3 Poke item get 1 one free!',
-    bg: 'FFF6A3',
+    bg: 'FFE7FF',
+  },
+];
+
+export const categories = [
+  {
+    id: 1,
+    img: 'images/group3.png ',
+    title: 'Pokemon',
+  },
+  {
+    id: 2,
+    img: 'images/pokeballmix.jpg',
+    title: 'Items',
+  },
+  {
+    id: 3,
+    img: 'images/disk.jpg',
+    title: 'TM/HM',
+  },
+];
+
+export const popularProduct = [
+  {
+    id: 1,
+    img: 'images/charmander.png',
+  },
+  {
+    id: 2,
+    img: 'images/charizard.png',
+  },
+  {
+    id: 3,
+    img: 'images/ultraball.png',
+  },
+  {
+    id: 4,
+    img: 'images/bulbasaur.png',
+  },
+  {
+    id: 5,
+    img: 'images/pokeballregular.png',
+  },
+  {
+    id: 6,
+    img: 'images/charmander.png',
+  },
+  {
+    id: 7,
+    img: 'images/superpotion.png',
+  },
+  {
+    id: 8,
+    img: 'images/mew.png',
   },
 ];
