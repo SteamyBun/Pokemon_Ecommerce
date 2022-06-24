@@ -54,23 +54,23 @@ export const popularProduct = [
   },
   {
     id: 2,
-    img: 'images/charizard.png',
+    img: 'images/squirtle.png',
   },
   {
     id: 3,
-    img: 'images/ultraball.png',
-  },
-  {
-    id: 4,
     img: 'images/bulbasaur.png',
   },
   {
+    id: 4,
+    img: 'images/dragonite.png',
+  },
+  {
     id: 5,
-    img: 'images/pokeballregular.png',
+    img: 'images/mew.png',
   },
   {
     id: 6,
-    img: 'images/charmander.png',
+    img: 'images/hyperpotion.png',
   },
   {
     id: 7,
@@ -78,6 +78,14 @@ export const popularProduct = [
   },
   {
     id: 8,
-    img: 'images/mew.png',
+    img: 'images/ultraball.png',
+  },
+  {
+    id: 8,
+    img: 'images/firestone.png',
+  },
+  {
+    id: 8,
+    img: 'images/tm.png',
   },
 ];
