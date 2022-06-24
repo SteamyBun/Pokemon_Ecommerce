@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   height: 60vh;
-  background-color: gray;
+  background-color: #adcf9f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,9 +16,23 @@ const Description = styled.div`
   font-size: 20px;
   margin-bottom: 50px;
 `;
-const InputContainer = styled.div``;
-const Input = styled.input``;
-const Button = styled.button``;
+const InputContainer = styled.div`
+  height: 40px;
+  width: 40%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+`;
+const Input = styled.input`
+  border: none;
+  flex: 7;
+`;
+const Button = styled.button`
+  flex: 1;
+  background-color: #ffdcae;
+  color: #adcf9f;
+`;
 
 const NewsLetter = () => {
   return (
