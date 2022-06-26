@@ -62,7 +62,7 @@ const Navbar = () => {
       <Wrapper>
         <Left>
           <SearchContainer>
-            <SearchInput />
+            <SearchInput placeholder='Search Poke-Mart' />
             <Search style={{ fontSize: 15 }} />
           </SearchContainer>
         </Left>
