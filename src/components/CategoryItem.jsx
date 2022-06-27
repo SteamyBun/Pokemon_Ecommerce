@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { categories } from '../data';
+import { mobile } from '../responsive';
 
 const Container = styled.div`
   flex: 1;
   margin: 3px;
   height: 70vh;
   position: relative;
-  padding: 30px;
+  ${mobile({ margin: '0px', width: '100%' })}
 `;
 const Title = styled.h2`
   color: white;
@@ -28,6 +29,7 @@ const Image = styled.img`
   object-fit: cover;
   padding: 0px 5px;
   opacity: 0.8;
+  ${mobile({ padding: '0px', height: '30vh' })}
 `;
 const Button = styled.button`
   padding: 10px;
