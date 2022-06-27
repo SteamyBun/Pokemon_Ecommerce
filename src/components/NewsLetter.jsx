@@ -2,7 +2,7 @@ import { Send } from '@mui/icons-material';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  height: 60vh;
+  height: 45vh;
   background-color: #adcf9f;
   display: flex;
   justify-content: center;
@@ -10,7 +10,7 @@ const Container = styled.div`
   flex-direction: column;
 `;
 const Title = styled.h2`
-  font-size: 50px;
+  font-size: 40px;
 `;
 const Description = styled.div`
   font-size: 20px;
