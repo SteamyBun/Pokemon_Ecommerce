@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mobile } from '../responsive';
 
 const Container = styled.div`
   width: 100vw;
@@ -24,6 +25,7 @@ const Wrapper = styled.div`
   width: 20%;
   background-color: white;
   padding: 40px;
+  ${mobile({ width: '80%' })}
 `;
 
 const Title = styled.div`
@@ -32,7 +34,7 @@ const Title = styled.div`
 
 const Input = styled.input`
   flex: 1;
-  min-width: 30%;
+  min-width: 40%;
   margin: 10px 0px;
   padding: 10px;
 `;

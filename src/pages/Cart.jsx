@@ -1,8 +1,10 @@
 import { Add, Remove } from '@mui/icons-material';
 import styled from 'styled-components';
+import Banner from '../components/Banner';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import NewsLetter from '../components/NewsLetter';
+import { mobile } from '../responsive';
 
 const Container = styled.div``;
 const Title = styled.div`
@@ -22,6 +24,7 @@ const TopTexts = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${mobile({ display: 'none' })}
 `;
 const TopText = styled.span`
   margin: 0px 10px;
@@ -41,6 +44,7 @@ const TopButton = styled.button`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: 'column' })}
 `;
 const Info = styled.div`
   flex: 3;
@@ -49,6 +53,7 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: 'column' })}
 `;
 const ProductDetail = styled.div`
   flex: 2;
@@ -83,6 +88,7 @@ const ProductAmountContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${mobile({ margin: '20px 0px' })}
 `;
 
 const Hr = styled.hr`
@@ -92,16 +98,18 @@ const Hr = styled.hr`
 
 const Amount = styled.div`
   font-size: 15px;
+  ${mobile({ fontSize: '20px' })}
 `;
 const ProductPrice = styled.div`
   font-size: 18px;
   margin: 20px;
+  ${mobile({ fontSize: '20px' })}
 `;
 
 const Summary = styled.div`
   height: 50%;
   border: 1px solid lightgrey;
-  padding: 20px;
+  padding: 30px;
   flex: 1;
 `;
 
@@ -116,12 +124,18 @@ const SummaryItem = styled.div`
 `;
 const SummaryItemText = styled.span``;
 const SummaryItemPrice = styled.span``;
-const Button = styled.button``;
+const Button = styled.button`
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+`;
 
 const Cart = () => {
   return (
     <Container>
       <Navbar />
+      <Banner />
       <Wrapper>
         <Title>Your Cart</Title>
         <Top>
@@ -142,7 +156,7 @@ const Cart = () => {
                     <b>Product:</b> Charizard
                   </ProductName>
                   <ProductID>
-                    <b>Product ID:</b> 123456789
+                    <b>Product ID:</b> 1234567890
                   </ProductID>
                   <ProductColor color='orange' />
                 </Details>
