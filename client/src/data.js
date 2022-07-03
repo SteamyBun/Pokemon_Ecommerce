@@ -32,17 +32,17 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: 'images/group3.png ',
+    img: '/images/group3.png ',
     title: 'Pokemon',
   },
   {
     id: 2,
-    img: 'images/pokeballmix.jpg',
+    img: '/images/pokeballmix.jpg',
     title: 'Items',
   },
   {
     id: 3,
-    img: 'images/disk.jpg',
+    img: '/images/disk.jpg',
     title: 'TM/HM',
   },
 ];
@@ -50,42 +50,42 @@ export const categories = [
 export const popularProduct = [
   {
     id: 1,
-    img: 'images/charmander.png',
+    img: '/images/charmander.png',
   },
   {
     id: 2,
-    img: 'images/squirtle.png',
+    img: '/images/squirtle.png',
   },
   {
     id: 3,
-    img: 'images/bulbasaur.png',
+    img: '/images/bulbasaur.png',
   },
   {
     id: 4,
-    img: 'images/dragonite.png',
+    img: '/images/dragonite.png',
   },
   {
     id: 5,
-    img: 'images/mew.png',
+    img: '/images/mew.png',
   },
   {
     id: 6,
-    img: 'images/hyperpotion.png',
+    img: '/images/hyperpotion.png',
   },
   {
     id: 7,
-    img: 'images/superpotion.png',
+    img: '/images/superpotion.png',
   },
   {
     id: 8,
-    img: 'images/ultraball.png',
+    img: '/images/ultraball.png',
   },
   {
-    id: 8,
-    img: 'images/firestone.png',
+    id: 9,
+    img: '/images/firestone.png',
   },
   {
-    id: 8,
-    img: 'images/tm.png',
+    id: 10,
+    img: '/images/tm.png',
   },
 ];
