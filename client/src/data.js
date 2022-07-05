@@ -43,7 +43,7 @@ export const categories = [
   {
     id: 3,
     img: '/images/disk.jpg',
-    title: 'TM/HM',
+    title: 'TM_HM',
   },
 ];
 

@@ -5,6 +5,10 @@ import NewsLetter from '../components/NewsLetter';
 import Footer from '../components/Footer';
 import { Add, Remove } from '@mui/icons-material';
 import { mobile } from '../responsive';
+import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+import { publicRequest } from '../requestMethod';
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -83,16 +87,31 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+  const location = useLocation();
+  const id = location.pathname.split('/')[2];
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get('/products/find/' + id);
+        setProduct(res.data);
+        console.log(res);
+      } catch {}
+    };
+    getProduct();
+  }, [id]);
+
   return (
     <Container>
       <Navbar />
       <Banner />
       <Wrapper>
         <ImgContainer>
-          <Image src='images/charizardreal.png' />
+          <Image src={product.img} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Charizard</Title>
+          <Title>{product.title}</Title>
           <Desc>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus,
             fuga corporis. Repudiandae deserunt praesentium quod. Praesentium
