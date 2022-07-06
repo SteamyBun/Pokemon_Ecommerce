@@ -7,8 +7,9 @@ import { Add, Remove } from '@mui/icons-material';
 import { mobile } from '../responsive';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-
 import { publicRequest } from '../requestMethod';
+import { addProduct } from '../redux/cartRedux';
+import { useDispatch } from 'react-redux';
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -90,6 +91,17 @@ const Product = () => {
   const location = useLocation();
   const id = location.pathname.split('/')[2];
   const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState('');
+  const dispatch = useDispatch();
+
+  const handleQuantity = (type) => {
+    if (type === 'dec') {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
 
   useEffect(() => {
     const getProduct = async () => {
@@ -102,6 +114,10 @@ const Product = () => {
     getProduct();
   }, [id]);
 
+  const handleClick = () => {
+    dispatch(addProduct({ ...product, quantity, color }));
+  };
+
   return (
     <Container>
       <Navbar />
@@ -112,27 +128,23 @@ const Product = () => {
         </ImgContainer>
         <InfoContainer>
           <Title>{product.title}</Title>
-          <Desc>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus,
-            fuga corporis. Repudiandae deserunt praesentium quod. Praesentium
-            eos molestiae deleniti eveniet omnis laboriosam totam sed eaque,
-            delectus provident hic. Consequuntur, culpa.
-          </Desc>
-          <Price>$5000</Price>
+          <Desc>{product.desc}</Desc>
+          <Price>$ {product.price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              <FilterColor color='black'></FilterColor>
-              <FilterColor color='orange'></FilterColor>
+              {product.color?.map((c) => (
+                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
+              ))}
             </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove onClick={() => handleQuantity('dec')} />
+              <Amount>{quantity}</Amount>
+              <Add onClick={() => handleQuantity('inc')} />
             </AmountContainer>
-            <Button>Add to Cart</Button>
+            <Button onClick={handleClick}>Add to Cart</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
