@@ -2,6 +2,7 @@ import { Search, ShoppingCartOutlined } from '@mui/icons-material';
 import { Badge } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { mobile } from '../responsive';
 
@@ -20,6 +21,7 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
   text-align: center;
+  text-decoration: none;
   ${mobile({ fontSize: '20px' })}
 `;
 
@@ -60,6 +62,11 @@ const NavItems = styled.div`
   ${mobile({ fontSize: '12px', marginLeft: '10px' })}
 `;
 
+const linkStyle = {
+  textDecoration: 'none',
+  color: 'black',
+};
+
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart).quantity;
   return (
@@ -72,17 +79,21 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Title>Poké-Mart.</Title>
+          <Link to='/' style={linkStyle}>
+            <Title>Poké-Mart.</Title>
+          </Link>
         </Center>
         <Right>
           <NavItems></NavItems>
           <NavItems>Register</NavItems>
           <NavItems>Sign In</NavItems>
-          <NavItems>
-            <Badge badgeContent={quantity} color='primary'>
-              <ShoppingCartOutlined />
-            </Badge>
-          </NavItems>
+          <Link to='/cart'>
+            <NavItems>
+              <Badge badgeContent={quantity} color='primary'>
+                <ShoppingCartOutlined />
+              </Badge>
+            </NavItems>
+          </Link>
         </Right>
       </Wrapper>
     </Container>

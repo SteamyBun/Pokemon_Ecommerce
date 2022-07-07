@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
 import { Routes, Route } from 'react-router-dom';
+import Success from './pages/Success';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Route path='/register' element={<Register />} />
       <Route path='/products' element={<ProductList />} />
       <Route path='/products/:id' element={<ProductList />} />
+      <Route path='/success' element={<Success />} />
     </Routes>
   );
 };

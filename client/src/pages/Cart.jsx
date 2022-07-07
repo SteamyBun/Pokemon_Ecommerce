@@ -1,10 +1,17 @@
 import { Add, Remove } from '@mui/icons-material';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Banner from '../components/Banner';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import NewsLetter from '../components/NewsLetter';
 import { mobile } from '../responsive';
+import StripeCheckout from 'react-stripe-checkout';
+import { userRequest } from '../requestMethod';
+import { useNavigate } from 'react-router-dom';
+
+const KEY = process.env.REACT_APP_STRIPE;
 
 const Container = styled.div``;
 const Title = styled.div`
@@ -132,6 +139,29 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
+  const [stripeToken, setStripeToken] = useState(null);
+  let navigate = useNavigate();
+
+  const onToken = (token) => {
+    setStripeToken(token);
+  };
+
+  useEffect(() => {
+    const makeRequest = async () => {
+      try {
+        const res = await userRequest.post('/checkout/payment', {
+          tokenId: stripeToken.id,
+          amount: cart.total * 100,
+        });
+        navigate('/success', {
+          stripeData: res.data,
+          products: cart,
+        });
+      } catch {}
+    };
+    stripeToken && makeRequest();
+  }, [stripeToken, cart.total, navigate]);
   return (
     <Container>
       <Navbar />
@@ -141,64 +171,46 @@ const Cart = () => {
         <Top>
           <TopButton>Continue Shopping</TopButton>
           <TopTexts>
-            <TopText>Shopping Bag (2)</TopText>
-            <TopText>Your Wishlist (0)</TopText>
+            <TopText>Shopping Bag</TopText>
+            <TopText>Your Wishlist</TopText>
           </TopTexts>
           <TopButton type='filled'>Checkout Now</TopButton>
         </Top>
         <Bottom>
           <Info>
-            <Product>
-              <ProductDetail>
-                <Image src='images/charizardreal.png' />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> Charizard
-                  </ProductName>
-                  <ProductID>
-                    <b>Product ID:</b> 1234567890
-                  </ProductID>
-                  <ProductColor color='orange' />
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <Amount>2</Amount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 5000</ProductPrice>
-              </PriceDetail>
-            </Product>
+            {cart.products.map((product) => (
+              <Product>
+                <ProductDetail>
+                  <Image src={product.img} />
+                  <Details>
+                    <ProductName>
+                      <b>Product:</b> {product.title}
+                    </ProductName>
+                    <ProductID>
+                      <b>Product ID:</b> {product._id}
+                    </ProductID>
+                    <ProductColor color={product.color} />
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                    <Remove />
+                    <Amount>{product.quantity}</Amount>
+                    <Add />
+                  </ProductAmountContainer>
+                  <ProductPrice>
+                    $ {product.price * product.quantity}
+                  </ProductPrice>
+                </PriceDetail>
+              </Product>
+            ))}
             <Hr />
-            <Product>
-              <ProductDetail>
-                <Image src='images/rayquazaoriginal.png' />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> Rayquaza
-                  </ProductName>
-                  <ProductID>
-                    <b>Product ID:</b> 0987654321
-                  </ProductID>
-                  <ProductColor color='green' />
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <Amount>2</Amount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 10000</ProductPrice>
-              </PriceDetail>
-            </Product>
           </Info>
           <Summary>
             <SummaryTitle>Order Summary</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice> $15000</SummaryItemPrice>
+              <SummaryItemPrice> $ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -210,9 +222,20 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type='total'>
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice> $15000</SummaryItemPrice>
+              <SummaryItemPrice> $ {cart.total}</SummaryItemPrice>
             </SummaryItem>
-            <Button>Checkout</Button>
+            <StripeCheckout
+              name='Poke-Mart'
+              image='/images/rayquaza.png'
+              billingAddress
+              shippingAddress
+              description={`Your Total is $${cart.total}`}
+              amount={cart.total * 100}
+              token={onToken}
+              stripeKey={KEY}
+            >
+              <Button>Checkout</Button>
+            </StripeCheckout>
           </Summary>
         </Bottom>
       </Wrapper>
