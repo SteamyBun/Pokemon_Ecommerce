@@ -85,8 +85,12 @@ const Navbar = () => {
         </Center>
         <Right>
           <NavItems></NavItems>
-          <NavItems>Register</NavItems>
-          <NavItems>Sign In</NavItems>
+          <Link to='/register' style={linkStyle}>
+            <NavItems>Register</NavItems>
+          </Link>
+          <Link to='/login' style={linkStyle}>
+            <NavItems>Sign In</NavItems>
+          </Link>
           <Link to='/cart'>
             <NavItems>
               <Badge badgeContent={quantity} color='primary'>
