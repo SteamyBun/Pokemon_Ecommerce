@@ -19,10 +19,10 @@ const Products = ({ cat, filters, sort }) => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get(
+        const res = await axiosInstance.get(
           cat
-            ? `http://localhost:5000/api/products?category=${cat}`
-            : 'http://localhost:5000/api/products'
+            ? `https://pokemartecomm.herokuapp.com/api/products?category=${cat}`
+            : 'https://pokemartecomm.herokuapp.com/api/products'
         );
         setProducts(res.data);
         console.log(res);
