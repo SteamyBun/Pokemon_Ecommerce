@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "build-client": "webpack",
     "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "16.14.2",
+    "npm": "8.5.0"
   },
   "keywords": [],
   "author": "",
